@@ -219,8 +219,7 @@ function mostrarAfiliado(e){
 		var cargas = JSON.parse(this.responseText)[1];
 		//document.getElementById('modaltitle').innerHTML ='<h4 class="modal-title">'+ titular.nombre+' '+titular.apellido + '</h4>';		
 		infoTitular= '<h3>'+titular.apellido+', '+titular.nombre+'</h3>'+
-			'<h5>DNI: '+titular.numero_documento+' Legajo: '+titular.legajo+'</h5>'+
-			'<h5>CBU: '+titular.cbu+' CUIL: '+titular.cuil+'</h5>';
+			'<h5>DNI: '+titular.numero_documento+' Legajo: '+titular.legajo+'</h5>';
 
 
 
