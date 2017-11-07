@@ -1,0 +1,62 @@
+form(method='POST', action='http://192.168.0.51:8080/altaCarga')
+    h4 Datos Titular
+    .row
+        .col
+            input#apellidoCarga.form-control(type='text')
+        .col-6
+            input#nombreCarga.form-control(type='text')
+        .col-2
+            input#tipoDocumentoCarga.form-control(type='text', name='id_tipo_documento_titular')
+        .col
+            input#numeroDocumentoCarga.form-control(type='text', name='numero_documento_titular')
+    br
+    h4 Datos Carga
+
+    .row
+        .col
+            input.form-control(type='text', placeholder='Apellido', name='apellido')
+        .col-6
+            input.form-control(type='text', placeholder='Nombre', name='nombre')
+        .col-2
+           select#inlineFormCustomSelect.custom-select.mb-2.mr-sm-2.mb-sm-0.form-control(name='sexo')
+                option(selected=' ') Sexo
+                option(value='M') Masculino
+                option(value='F') Femenino
+    .row
+        .col-2
+            select#inlineFormCustomSelect.custom-select.mb-2.mr-sm-2.mb-sm-0.form-control(name='id_tipo_documento')
+                option(value='1') DNI
+                option(value='2') LC
+                option(value='3') LE
+        .col
+            input.form-control(type='text', placeholder='Numero Documento', name='numero_documento')
+        .col-2
+            input.form-control(type='text', placeholder='Grupo sanguineo', name='grupo_sanguineo')
+    .row 
+        .col
+            label Fecha alta
+            input.form-control(type='date', name='fecha_alta') 
+        .col
+            label Fecha entrega tarjeta
+            input.form-control(type='date',  name='fecha_tarjeta')  
+        .col
+            label Fecha nacimiento
+            input.form-control(type='date',  name='fecha_nacimiento')  
+    .row
+        .col-2
+            select#inlineFormCustomSelect.custom-select.mb-2.mr-sm-2.mb-sm-0.form-control(name='reparticion')
+                option(value='') Reparticion propia
+                option(value='1') AC
+                option(value='2') ACJB
+                option(value='3') AC07
+                option(value='4') ACIS
+                option(value='5') ACJ1
+                option(value='6') Z016
+        .col
+            input.form-control(type='text', placeholder='Legajo propio', name='legajo_propio')
+    .row
+        .col-2
+            input.form-control(type='number', placeholder='Numero de carga', name='numero_carga')
+    br
+    input.btn.btn-primary(type='submit', value='Ingresar')
+

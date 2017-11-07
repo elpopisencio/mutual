@@ -1,0 +1,70 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(name='description', content='')
+        meta(name='author', content='')
+        link(rel='icon', href='../../../../favicon.ico')
+        title Carousel Template for Bootstrap
+        // Bootstrap core CSS
+
+        link(href='/bootstrap/css/bootstrap.css', rel='stylesheet')
+        link(href='/stylesheets/indice.css', rel='stylesheet')
+        link(href='/stylesheets/carousel.css', rel='stylesheet')        
+            
+
+
+    body
+        nav.navbar.navbar-toggleable-md.navbar-inverse(style='background-color: #1d2942;')
+            button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+                span.navbar-toggler-icon
+            
+
+            #navbarSupportedContent.collapse.navbar-collapse
+                ul.navbar-nav.mr-auto
+                    li.nav-item
+                        a.navbar-brand(href='') Sistema Mutual                        
+                    li.nav-item
+                        button.btn.btn-primary(type='button', data-toggle='modal', data-target='#modalAltaTitular') Alta Titular
+
+                    
+        
+        .container
+            .tab-content
+                #portada.tab-pane.fade.show.active
+                    include buscar_afiliados.pug
+                
+        
+        include modales.pug
+        br
+        br
+        br
+
+
+
+
+
+        // FOOTER
+        
+        footer.fixed-bottom(style='background-color: #1d2942; color: grey')
+            .container         
+                p.float-right
+                    a.nav-link(href='#') Arriba
+                p
+                    | © 2017 Mutual del Personal de la Policia del Neuquén. · 
+                    a(href='#') Privacy
+                    |  · 
+                    a(href='#') Terms
+
+
+
+
+
+        script(src='/tether/dist/js/tether.min.js')
+        //script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+        //script(src='/jquery/dist/jquery.js')                 
+        script(src='/jquery/dist/jquery.js')                 
+        script(src='/bootstrap/js/bootstrap.js')
+        script(src='/scripts.js')
+        script(src='/scripts/buscar.js')

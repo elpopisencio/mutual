@@ -1,0 +1,69 @@
+.row
+    .col
+        input#apellidoTitularMostrar.form-control(type='text', placeholder='Apellido', required='true', value='')
+    .col-6
+        input#nombreTitularMostrar.form-control(type='text', placeholder='Nombre', name='nombre')
+    .col-2
+       select#sexoTitularMostrar.custom-select.mb-2.mr-sm-2.mb-sm-0.form-control(name='sexo')
+            option(selected=' ') Sexo
+            option(value='M') Masculino
+            option(value='F') Femenino
+.row
+    .col-2
+        select#tipoDocumentoTitularMostrar.custom-select.mb-2.mr-sm-2.mb-sm-0.form-control(name='id_tipo_documento')
+            option(value='1') DNI
+            option(value='2') LC
+            option(value='3') LE
+    .col
+        input#numeroDocumentoTitularMostrar.form-control(type='text', placeholder='Numero Documento', name='numero_documento')
+    .col-2
+
+        input#grupoSanguineoTitularMostrar.form-control(type='text', placeholder='Grupo sanguineo', name='grupo_sanguineo')
+.row 
+    .col
+        label Fecha alta
+        input#fechaAltaTitularMostrar.form-control(type='date', name='fecha_alta') 
+    .col
+        label Fecha entrega tarjeta
+        input#fechaTarjetaTitularMostrar.form-control(type='date',  name='fecha_tarjeta')  
+    .col
+        label Fecha nacimiento
+        input#fechaNacimientoTitularMostrar.form-control(type='date',  name='fecha_nacimiento')  
+
+.row
+    .col-2
+        select#reparticionTitularMostrar.custom-select.mb-2.mr-sm-2.mb-sm-0.form-control(name='reparticion')
+            option(value='') Reparticion
+            option(value='1') AC
+            option(value='2') ACJB
+            option(value='3') AC07
+            option(value='4') ACIS
+            option(value='5') ACJ1
+            option(value='6') Z016
+    .col
+        input#legajoTitularMostrar.form-control(type='text', placeholder='Legajo', name='legajo')
+    .col
+        input#subcontratoTitularMostrar.form-control(type='text', placeholder='Subcontrato', name='subcontrato')
+
+    .col-3
+        input#servicioTitularMostrar.form-control(type='text', placeholder='Unidad organizacional y Servicio', name='servicio')
+    .col
+        input#lugarPagoTitularMostrar.form-control(type='text', placeholder='Lugar pago', name='lugar_pago')
+    .col
+        input#cuilTitularMostrar.form-control(type='text', placeholder='Cuil', name='cuil')
+.row
+    //.col
+        //input.form-control(type='text', placeholder='CBU', name='cbu')
+
+    .col
+        input.form-control(type='text', placeholder='Codigo postal', name='codigo_postal')
+    .col
+        input.form-control(type='text', placeholder='Domicilio', name='domicilio')
+    .col
+        input.form-control(type='text', placeholder='Email', name='email')
+    .col
+        input.form-control(type='text', placeholder='Telefono', name='telefono')
+    .col
+        input.form-control(type='text', placeholder='Delegacion', name='delegacion')
+.row
+    input.form-control(type='hidden', value='0', name='numero_carga')

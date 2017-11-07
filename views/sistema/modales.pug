@@ -1,0 +1,78 @@
+
+#modalMostrar.modal.fade(role='dialog')
+    .modal-dialog.modal-lg
+        .modal-content
+            .modal-header
+                h4.modal-title Carga
+            .modal-body
+                
+
+                ul.nav.nav-tabs
+                    li.nav-item
+                        a.nav-link.active(href='#modalTitularUno', data-toggle='tab') Titular
+                    li.nav-item
+                        a.nav-link(href='#modalCargaUno', data-toggle='tab') Carga
+                .tab-content
+                    #modalTitularUno.tab-pane.fade.show.active
+                        include mostrar_afiliado.pug
+                    #modalCargaUno.tab-pane.fade 
+                        #datosCarga
+                        hola
+                    
+                    
+
+
+
+
+            .modal-footer
+                button.btn.btn-default(type='button', data-dismiss='modal') Close
+
+
+//Dar Baja
+#modalBaja.modal.fade(role='dialog')
+    .modal-dialog.modal-lg
+        .modal-content
+            .modal-header
+                h4.modal-title Dar de baja
+            .modal-body
+                input#documentoBaja.form-control(type='number')
+                p Ingrese fecha de baja
+                input#fechaBaja.form-control(type='date', name='fecha_baja') 
+            .modal-footer
+                button#darBaja.btn.btn-default(type='button', data-dismiss='modal') Dar baja
+
+//Editar
+#modalTitular.modal.fade(role='dialog')
+    .modal-dialog.modal-lg
+        .modal-content
+            .modal-header
+                h4.modal-title Editar
+            .modal-body
+                    include editar_titular.pug
+
+            .modal-footer
+                button.btn.btn-default(type='button', data-dismiss='modal') Close
+
+//Alta
+#modalAltaCarga.modal.fade(role='dialog')
+    .modal-dialog.modal-lg
+        .modal-content
+            .modal-header
+                h4.modal-title Carga
+            .modal-body
+                include afiliacion_carga.pug
+            .modal-footer
+                button.btn.btn-default(type='button', data-dismiss='modal') Close
+
+#modalAltaTitular.modal.fade(role='dialog')
+    .modal-dialog.modal-lg
+        .modal-content
+            .modal-header
+                h2.modal-title Alta Titular
+            .modal-body
+                include afiliacion_titular.pug
+            .modal-footer
+                .col
+                    button#altaTitular.btn.btn-primary.btn-block(type='button') Afiliar
+                .col
+                    button.btn.btn-danger.btn-block(type='button', data-dismiss='modal') Cancelar
