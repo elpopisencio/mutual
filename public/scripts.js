@@ -1,98 +1,90 @@
-$(document).ready(function(){
-	$(":button").click(function(){
-		$("#cuerpo").hide();
-        $("#cuerpo").html($(this).val());
-		$("#cuerpo").fadeIn();
-    });
-});
+// VARIABLES:
+var direccion = "http://192.168.0.51:8080/";
 
-function loadDoc() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("demo").innerHTML = this.responseText;
-    }
-  };
-  xhttp.open("GET", "ajax_info.txt", true);
-  xhttp.send();
+// EVENT LISTENERS:
+document.getElementById('afiliacionTitular').addEventListener('submit',altaTitular);
+document.getElementById('darBaja').addEventListener('click',bajaAfiliado);
+document.getElementById('editarTitular').addEventListener('click',editarTitular);
+
+// GETS:
+
+// SETS:
+
+// MOSTRAR:
+
+// AUXILIARES:
+function setValue(afiliado, sufijo){
+	for (i in afiliado){
+		if (document.getElementById(i+"_"+sufijo) != null){
+			document.getElementById(i +"_"+sufijo).value = afiliado[i];
+		}
+	}
+}
+
+function getValue(sufijo){
+	var titular = {apellido:"", nombre:"", sexo:"", id_tipo_documento:"", numero_documento:"", grupo_sanguineo:"", fecha_alta:"", fecha_tarjeta:"", fecha_nacimiento:"", reparticion:"", legajo:"", subcontrato:"", servicio:"", lugar_pago:"", cuil:"", numero_carga:0};
+	for(i in titular){
+		if (document.getElementById(i+"_"+sufijo) != null){
+			titular[i]=document.getElementById(i+"_"+sufijo).value;
+		}
+	}
+	return titular;
+}
+
+function setConsulta(afiliado, metodo){
+	var consulta = direccion + metodo + '?';
+	for(i in afiliado){
+		consulta += i + '=' + afiliado[i] + '&';
+	}
+	consulta += "usuario=pepe";
+	return consulta;
+}
+
+function setReady(afiliado, sufijo){
+	for (i in afiliado){
+		if (document.getElementById(i+"_"+sufijo) != null){
+			document.getElementById(i +"_"+sufijo).readOnly = true;
+		};
+	}
 }
 
 function mostrarAgregarCarga(e){
 	e.preventDefault();
 	var xhr = new XMLHttpRequest();
-	var consulta =  'http://192.168.0.51:8080/mostrar?numero_documento='+this.value+'&numero_carga=0';
+	var consulta =  'http://192.168.0.51:8080/mostrarDatos?numero_documento='+this.value+'&numero_carga=0';
 	xhr.open('GET', consulta, true);
 	xhr.onload = function(){
-		console.log(this.responseText);
 		var afiliado = JSON.parse(this.responseText);
-		document.getElementById('apellidoCarga').value = afiliado.apellido;
-		document.getElementById('nombreCarga').value = afiliado.nombre;
-		document.getElementById('numeroDocumentoCarga').value = afiliado.numero_documento;
-		document.getElementById('tipoDocumentoCarga').value = afiliado.id_tipo_documento;
-		document.getElementById('apellidoCarga').readOnly=true;
-		document.getElementById('nombreCarga').readOnly=true;
-		document.getElementById('numeroDocumentoCarga').readOnly=true;
-		document.getElementById('tipoDocumentoCarga').readOnly=true;
-
+		sufijo = 'carga';
+		setValue(afiliado, sufijo);
+		setReady(afiliado, sufijo);
 	}
 	xhr.send();
 }
-
 
 function mostrarEditar(e){
 	e.preventDefault();
 	var xhr = new XMLHttpRequest();
-	var consulta =  'http://192.168.0.51:8080/mostrar?numero_documento='+this.value+'&numero_carga=0';
+	var consulta =  'http://192.168.0.51:8080/mostrarDatos?numero_documento='+this.value;
 	xhr.open('GET', consulta, true);
 	xhr.onload = function(){
 		var afiliado = JSON.parse(this.responseText);
-		document.getElementById('apellidoEditarTitular').value = afiliado.apellido;
-		document.getElementById('nombreEditarTitular').value = afiliado.nombre;
-		document.getElementById('numeroDocumentoActualEditarTitular').value = afiliado.numero_documento;
+		//console.log(afiliado);
+		setValue(afiliado, 'editar_titular');
 	}
 	xhr.send();
 }
-document.getElementById('altaTitular').addEventListener('click',altaTitular);
-document.getElementById('darBaja').addEventListener('click',bajaAfiliado);
-document.getElementById('editarTitular').addEventListener('click',editarTitular);
+
 
 function altaTitular(e){
 	e.preventDefault();
-	var xhr = new XMLHttpRequest();
-	
-	var apellido = document.getElementById('apellidoTitular').value;
-	var nombre = document.getElementById('nombreTitular').value;
-	var sexo = document.getElementById('sexoTitular').value;
-	var tipoDocumento = document.getElementById('tipoDocumentoTitular').value;
-	var numeroDocumento = document.getElementById('numeroDocumentoTitular').value;
-	var grupoSanguineo = document.getElementById('grupoSanguineoTitular').value;
-	var fechaAlta = document.getElementById('fechaAltaTitular').value;
-	var fechaTarjeta = document.getElementById('fechaTarjetaTitular').value;
-	var fechaNacimiento = document.getElementById('fechaNacimientoTitular').value;
-	var reparticion = document.getElementById('reparticionTitular').value;
-	var legajo = document.getElementById('legajoTitular').value;
-	var subcontrato = document.getElementById('subcontratoTitular').value;
-	var servicio = document.getElementById('servicioTitular').value;
-	var lugarPago = document.getElementById('lugarPagoTitular').value;
-	var cuil = document.getElementById('cuilTitular').value;
-
-	var consulta =  'http://192.168.0.51:8080/altaTitular?sexo='+sexo+
-		'&tipo_documento='+tipoDocumento+
-		'&numero_documento='+numeroDocumento+
-		'&grupo_sanguineo='+grupoSanguineo+
-		'&fecha_alta='+fechaAlta+
-		'&fecha_tarjeta='+fechaTarjeta+
-		'&fecha_nacimiento='+fechaNacimiento+
-		'&reparticion='+reparticion+
-		'&legajo='+legajo+
-		'&numero_carga=0';
-
-			
-	xhr.open('POST', consulta, true);
+	var xhr = new XMLHttpRequest();			
+	xhr.open('POST', setConsulta(getValue('titular'), "altaTitular"), true);
 	xhr.onload = function(){
 		console.log(this.responseText);
 	}
 	xhr.send();
+
 }
 
 function editarCarga(e){
@@ -209,19 +201,13 @@ function bajaAfiliado(e){
 
 function mostrarAfiliado(e){
 	e.preventDefault();
-	var cuerpo = '';
 	var xhr = new XMLHttpRequest();
 	var consulta =  'http://192.168.0.51:8080/mostrar?numero_documento='+this.value;
 	xhr.open('GET', consulta, true);
 	xhr.onload = function(){
-		console.log(JSON.parse(this.responseText));
+		//console.log(JSON.parse(this.responseText));
 		var titular = JSON.parse(this.responseText)[0];
 		var cargas = JSON.parse(this.responseText)[1];
-		//document.getElementById('modaltitle').innerHTML ='<h4 class="modal-title">'+ titular.nombre+' '+titular.apellido + '</h4>';		
-		infoTitular= '<h3>'+titular.apellido+', '+titular.nombre+'</h3>'+
-			'<h5>DNI: '+titular.numero_documento+' Legajo: '+titular.legajo+'</h5>';
-
-
 
 		document.getElementById('apellidoTitularMostrar').value = titular.apellido;
 		document.getElementById('nombreTitularMostrar').value = titular.nombre;
@@ -267,35 +253,36 @@ function mostrarAfiliado(e){
 		subcontrato
 		telefono
 		*/
-
-		'DNI: ' + titular.numero_documento;
-		infoCarga='';
-		infoCarga += '<table class="table">'+
-			'      <thead>'+
-			'        <tr>'+
-			'          <th>#</th>'+
-				'          <th>Nombre</th>'+
-				'          <th>Apellido</th>'+
-				'          <th>DNI</th>'+
-				'          <th>Acciones</th>'+
-				'        </tr>'+
-				'      </thead>'+
-				'      <tbody>';
-			for(i in cargas){
-				infoCarga += '<tr>'+
-					'        <th scope="row">'+cargas[i].numero_carga+'</th>'+
-					'        <td>'+cargas[i].nombre+'</td>'+
-					'        <td>'+cargas[i].apellido+'</td>'+
-					'        <td>'+cargas[i].numero_documento+'</td>'+
-					'        <td>'+
-					'          <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalBaja"  id="baja_'+cargas[i].numero_documento+'" value='+cargas[i].numero_documento+'> Editar </button>'+
-					'          <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalBaja"  id="baja_'+cargas[i].numero_documento+'" value='+cargas[i].numero_documento+'> Baja </button>'+
-					'        </td>'+
-					'      </tr>';
-			}
-			infoCarga += '</tbody></table>';
-		//document.getElementById('datosTitular').innerHTML= infoTitular;
-		document.getElementById('datosCarga').innerHTML= infoCarga;
+		document.getElementById('datosCarga').innerHTML= htmlCargas(cargas);
 	}
 	xhr.send();
+}
+
+function htmlCargas(cargas){
+	infoCarga='';
+	infoCarga += '<table class="table">'+
+		'      <thead>'+
+		'        <tr>'+
+		'          <th>Nº</th>'+
+		'          <th>Nombre</th>'+
+		'          <th>Apellido</th>'+
+		'          <th>DNI</th>'+
+		'          <th>Acciones</th>'+
+		'        </tr>'+
+		'      </thead>'+
+		'      <tbody>';
+	for(i in cargas){
+		infoCarga += '<tr>'+
+			'        <td>'+cargas[i].numero_carga+'</td>'+
+			'        <td>'+cargas[i].nombre+'</td>'+
+			'        <td>'+cargas[i].apellido+'</td>'+
+			'        <td>'+cargas[i].numero_documento+'</td>'+
+			'        <td>'+
+			'          <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalBaja"  id="baja_'+cargas[i].numero_documento+'" value='+cargas[i].numero_documento+'> Editar </button>'+
+			'          <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalBaja"  id="baja_'+cargas[i].numero_documento+'" value='+cargas[i].numero_documento+'> Baja </button>'+
+			'        </td>'+
+			'      </tr>';
+	}
+	infoCarga += '</tbody></table>';
+	return infoCarga;
 }

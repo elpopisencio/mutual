@@ -17,7 +17,7 @@
                         include mostrar_afiliado.pug
                     #modalCargaUno.tab-pane.fade 
                         #datosCarga
-                        hola
+
                     
                     
 
@@ -64,15 +64,16 @@
             .modal-footer
                 button.btn.btn-default(type='button', data-dismiss='modal') Close
 
-#modalAltaTitular.modal.fade(role='dialog')
-    .modal-dialog.modal-lg
-        .modal-content
-            .modal-header
-                h2.modal-title Alta Titular
-            .modal-body
-                include afiliacion_titular.pug
-            .modal-footer
-                .col
-                    button#altaTitular.btn.btn-primary.btn-block(type='button') Afiliar
-                .col
-                    button.btn.btn-danger.btn-block(type='button', data-dismiss='modal') Cancelar
+
+//#modalAltaTitular.modal.fade(role='dialog')
+    //.modal-dialog.modal-lg
+        //.modal-content
+            //.modal-header
+                //h2.modal-title Alta Titular
+            //.modal-body
+include afiliacion_titular.pug
+            //.modal-footer
+                //.col
+                    //                    button#altaTitular.btn.btn-primary.btn-block(type='button') Afiliar
+                //.col
+                    //button.btn.btn-danger.btn-block(type='button', data-dismiss='modal') Cancelar

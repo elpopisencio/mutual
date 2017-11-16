@@ -1,13 +1,11 @@
 .row
     .col
-        input#apellidoTitularMostrar.form-control(type='text', placeholder='Apellido', required='true', value='')
+        input#apellidoTitularMostrar.form-control(type='text')
     .col-6
-        input#nombreTitularMostrar.form-control(type='text', placeholder='Nombre', name='nombre')
+        input#nombreTitularMostrar.form-control(type='text')
     .col-2
-       select#sexoTitularMostrar.custom-select.mb-2.mr-sm-2.mb-sm-0.form-control(name='sexo')
-            option(selected=' ') Sexo
-            option(value='M') Masculino
-            option(value='F') Femenino
+        input#sexoTitularMostrar.form-control(type='text')
+
 .row
     .col-2
         select#tipoDocumentoTitularMostrar.custom-select.mb-2.mr-sm-2.mb-sm-0.form-control(name='id_tipo_documento')

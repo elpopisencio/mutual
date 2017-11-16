@@ -1,39 +1,39 @@
 form()
     .row
         .col
-            input#apellidoEditarTitular.form-control(type='text', placeholder='Apellido', required='true')
+            input#apellido_editar_titular.form-control(type='text', placeholder='Apellido', required='true')
         .col-6
-            input#nombreEditarTitular.form-control(type='text', placeholder='Nombre', name='nombre')
+            input#nombre_editar_titular.form-control(type='text', placeholder='Nombre', name='nombre')
         .col-2
-           select#sexoEditarTitular.custom-select.mb-2.mr-sm-2.mb-sm-0.form-control(name='sexo')
+           select#sexo_editar_titular.custom-select.mb-2.mr-sm-2.mb-sm-0.form-control(name='sexo')
                 option(selected=' ', value='') Sexo
                 option(value='M') Masculino
                 option(value='F') Femenino
     .row
         .col-2
-            select#tipoDocumentoEditarTitular.custom-select.mb-2.mr-sm-2.mb-sm-0.form-control(name='id_tipo_documento')
+            select#id_tipo_documento_editar_titular.custom-select.mb-2.mr-sm-2.mb-sm-0.form-control(name='id_tipo_documento')
                 option(value='1') DNI
                 option(value='2') LC
                 option(value='3') LE
         .col
-            input#numeroDocumentoEditarTitular.form-control(type='text', placeholder='Numero Documento', name='numero_documento')
+            input#numero_documento_editar_titular.form-control(type='text', placeholder='Numero Documento', name='numero_documento')
         .col-2
 
-            input#grupoSanguineoEditarTitular.form-control(type='text', placeholder='Grupo sanguineo', name='grupo_sanguineo')
+            input#grupo_sanguineo_editar_titular.form-control(type='text', placeholder='Grupo sanguineo', name='grupo_sanguineo')
     .row 
         .col
             label Fecha alta
-            input#fechaAltaEditarTitular.form-control(type='date', name='fecha_alta') 
+            input#fecha_alta_editar_titular.form-control(type='date', name='fecha_alta') 
         .col
             label Fecha entrega tarjeta
-            input#fechaTarjetaEditarTitular.form-control(type='date',  name='fecha_tarjeta')  
+            input#fecha_tarjeta_editar_titular.form-control(type='date',  name='fecha_tarjeta')  
         .col
             label Fecha nacimiento
-            input#fechaNacimientoEditarTitular.form-control(type='date',  name='fecha_nacimiento')  
+            input#fecha_nacimiento_editar_titular.form-control(type='date',  name='fecha_nacimiento')  
 
     .row
         .col-2
-            select#reparticionEditarTitular.custom-select.mb-2.mr-sm-2.mb-sm-0.form-control(name='reparticion')
+            select#reparticion_editar_titular.custom-select.mb-2.mr-sm-2.mb-sm-0.form-control(name='reparticion')
                 option(value='') Reparticion
                 option(value='1') AC
                 option(value='2') ACJB
@@ -42,16 +42,16 @@ form()
                 option(value='5') ACJ1
                 option(value='6') Z016
         .col
-            input#legajoEditarTitular.form-control(type='text', placeholder='Legajo', name='legajo')
+            input#legajo_editar_titular.form-control(type='text', placeholder='Legajo', name='legajo')
         .col
-            input#subcontratoEditarTitular.form-control(type='text', placeholder='Subcontrato', name='subcontrato')
+            input#subcontrato_editar_titular.form-control(type='text', placeholder='Subcontrato', name='subcontrato')
 
         .col-3
-            input#servicioEditarTitular.form-control(type='text', placeholder='Unidad organizacional y Servicio', name='servicio')
+            input#servicio_editar_titular.form-control(type='text', placeholder='Unidad organizacional y Servicio', name='servicio')
         .col
-            input#lugarPagoEditarTitular.form-control(type='text', placeholder='Lugar pago', name='lugar_pago')
+            input#lugar_pago_editar_titular.form-control(type='text', placeholder='Lugar pago', name='lugar_pago')
         .col
-            input#cuilEditarTitular.form-control(type='text', placeholder='Cuil', name='cuil')
+            input#cuil_editar_titular.form-control(type='text', placeholder='Cuil', name='cuil')
     .row
         //.col
             //input.form-control(type='text', placeholder='CBU', name='cbu')

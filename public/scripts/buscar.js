@@ -42,19 +42,20 @@ function buscar(e){
 	
 	var xhr = new XMLHttpRequest();
 	var consulta =  'http://192.168.0.51:8080/busqueda?numero_documento='+dni+'&legajo='+legajo+'&apellido='+apellido+'&nombre='+nombre;
+	
 	//console.log(consulta);
 	var cuerpo = '';
 	xhr.open('GET', consulta, true);
 	xhr.onload = function(){
-		console.log(this.responseText);
+		//console.log(this.responseText);
 		var afiliados = JSON.parse(this.responseText);
 
 		if(this.status == 200){
 			cuerpo+='<table class="table">'+
 				'      <thead>'+
 				'        <tr>'+
-				'          <th>Nombre</th>'+
 				'          <th>Apellido</th>'+
+				'          <th>Nombre</th>'+
 				'          <th>DNI</th>'+
 				'          <th>Acciones</th>'+
 				'        </tr>'+
@@ -63,8 +64,8 @@ function buscar(e){
 			var x = 1;
 			for(i in afiliados){
 				cuerpo += '<tr>'+
-					'        <td>'+afiliados[i].nombre+'</td>'+
 					'        <td>'+afiliados[i].apellido+'</td>'+
+					'        <td>'+afiliados[i].nombre+'</td>'+
 					'        <td>'+afiliados[i].numero_documento+'</td>'+
 					'        <td>'+
 					'          <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalMostrar" id="mostrar_'+afiliados[i].numero_documento+'" value='+afiliados[i].numero_documento+'> Mostrar </button>'+
