@@ -1,0 +1,38 @@
+//Dar Baja
+#modalEstado.modal.fade(role='dialog')
+    .modal-dialog.modal-lg
+        .modal-content
+            .modal-header
+                h4.modal-title Cambiar Estado
+            .modal-body
+                form#estado()
+                    .row
+                        .col
+                            label Documento:
+                    .row
+                        .col
+                            input#documento_estado.form-control(type='number', readonly)
+                    br
+                    .row
+                        .col
+                            #estados_div
+                    .row
+                        .col
+                            label Ingrese fecha de cambio de estado
+                    .row
+                        .col
+                            input#fechaBaja.form-control(type='date',  name='fecha_baja', required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
+                    br
+                    .row
+                        .col
+                            label Motivo
+                    .row
+                        .col
+                            input#motivoBaja.form-control(type='text', required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
+                    br
+                    .row
+                        .col
+                            
+                            input.btn.btn-danger.btn-block(type='submit', value='Cambiar Estado')
+                        .col
+                            button.btn.btn-default.btn-block(type='button', data-dismiss='modal') Close

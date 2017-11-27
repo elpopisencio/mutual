@@ -1,62 +1,66 @@
-form(method='POST', action='http://192.168.0.51:8080/altaCarga')
-    h4 Datos Titular
-    .row
-        .col
-            input#apellido_carga.form-control(type='text')
-        .col-6
-            input#nombre_carga.form-control(type='text')
-        .col-2
-            input#id_tipo_documento_carga.form-control(type='text', name='id_tipo_documento_titular')
-        .col
-            input#numero_documento_carga.form-control(type='text', name='numero_documento_titular')
-    br
-    h4 Datos Carga
+#modalAltaCarga.modal.fade(role='dialog')
+    .modal-dialog.modal-lg
+        .modal-content
+            .modal-header
+                h4.modal-title Agregar Carga
+            .modal-body
 
-    .row
-        .col
-            input.form-control(type='text', placeholder='Apellido', name='apellido', required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
-        .col-6
-            input.form-control(type='text', placeholder='Nombre', name='nombre', required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
-        .col-2
-           select#inlineFormCustomSelect.custom-select.mb-2.mr-sm-2.mb-sm-0.form-control(required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
-                option(value='') Sexo
-                option(value='M') Masculino
-                option(value='F') Femenino
-    .row
-        .col-2
-            select#inlineFormCustomSelect.custom-select.mb-2.mr-sm-2.mb-sm-0.form-control(name='id_tipo_documento')
-                option(value='1') DNI
-                option(value='2') LC
-                option(value='3') LE
-        .col
-            input.form-control(type='text', placeholder='Numero Documento', name='numero_documento', required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
-        .col-2
-            input.form-control(type='text', placeholder='Grupo sanguineo', name='grupo_sanguineo', required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
-    .row 
-        .col
-            label Fecha alta
-            input.form-control(type='date', name='fecha_alta', required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
-        .col
-            label Fecha entrega tarjeta
-            input.form-control(type='date',  name='fecha_tarjeta')  
-        .col
-            label Fecha nacimiento
-            input.form-control(type='date',  name='fecha_nacimiento', required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
-    .row
-        .col-2
-            select#inlineFormCustomSelect.custom-select.mb-2.mr-sm-2.mb-sm-0.form-control(name='reparticion', required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
-                option(value='') Reparticion propia
-                option(value='1') AC
-                option(value='2') ACJB
-                option(value='3') AC07
-                option(value='4') ACIS
-                option(value='5') ACJ1
-                option(value='6') Z016
-        .col
-            input.form-control(type='text', placeholder='Legajo propio', name='legajo_propio', required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
-    .row
-        .col-2
-            input.form-control(type='number', placeholder='Numero de carga', name='numero_carga', required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
-    br
-    input.btn.btn-primary(type='submit', value='Ingresar')
+                form#afiliacionCarga()
+                    h4 Datos Titular
+                    .row
+                        .col
+                            input#apellido_titular_carga.form-control(type='text')
+                        .col-6
+                            input#nombre_titular_carga.form-control(type='text')
+                        .col-2
+                            input#id_tipo_documento_titular_carga.form-control(type='text', name='id_tipo_documento_titular')
+                        .col
+                            input#numero_documento_titular_carga.form-control(type='text', name='numero_documento_titular')
+                    br
+                    h4 Datos Carga
+
+                    .row
+                        .col
+                            input#apellido_carga.form-control(type='text', placeholder='Apellido', name='apellido', required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
+                        .col-6
+                            input#nombre_carga.form-control(type='text', placeholder='Nombre', name='nombre', required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
+                        .col-2
+                           select#sexo_carga.custom-select.mb-2.mr-sm-2.mb-sm-0.form-control(required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
+                                option(value='') Sexo
+                                option(value='M') Masculino
+                                option(value='F') Femenino
+                    .row
+                        .col-2
+                            select#id_tipo_documento_carga.custom-select.mb-2.mr-sm-2.mb-sm-0.form-control(name='id_tipo_documento')
+                                option(value='1') DNI
+                                option(value='2') LC
+                                option(value='3') LE
+                        .col
+                            input#numero_documento_carga.form-control(type='text', placeholder='Numero Documento', name='numero_documento', maxlength="8", required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
+                        .col-2
+                            input#grupo_sanguineo_carga.form-control(type='text', placeholder='Grupo sanguineo', name='grupo_sanguineo', required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
+                    .row 
+                        .col
+                            label Fecha alta
+                            input#fecha_alta_carga.form-control(type='date', name='fecha_alta', required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
+                        .col
+                            label Fecha entrega tarjeta
+                            input#fecha_entrega_tarjeta_carga.form-control(type='date',  name='fecha_tarjeta')  
+                        .col
+                            label Fecha nacimiento
+                            input#fecha_nacimiento_carga.form-control(type='date',  name='fecha_nacimiento', required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
+                    .row
+                        .col-2
+                            #id_reparticion_carga_div
+                        .col
+                            input#legajo_propio_carga.form-control(type='text', placeholder='Legajo propio', name='legajo_propio')
+                    .row
+                        .col-2
+                            input#numero_carga_carga.form-control(type='number', placeholder='Numero de carga', name='numero_carga', required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
+                    br
+                    .row
+                        .col
+                            input.btn.btn-primary(type='submit', value='Ingresar')
+                        .col
+                            button.btn.btn-default(type='button', data-dismiss='modal') Close
 

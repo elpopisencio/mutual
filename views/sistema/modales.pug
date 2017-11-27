@@ -27,42 +27,60 @@
             .modal-footer
                 button.btn.btn-default(type='button', data-dismiss='modal') Close
 
+include baja.pug
 
 //Dar Baja
-#modalBaja.modal.fade(role='dialog')
-    .modal-dialog.modal-lg
-        .modal-content
-            .modal-header
-                h4.modal-title Dar de baja
-            .modal-body
-                input#documentoBaja.form-control(type='number')
-                p Ingrese fecha de baja
-                input#fechaBaja.form-control(type='date', name='fecha_baja') 
-            .modal-footer
-                button#darBaja.btn.btn-default(type='button', data-dismiss='modal') Dar baja
+//#modalBaja.modal.fade(role='dialog')
+//    .modal-dialog.modal-lg
+  //      .modal-content
+    //        .modal-header
+      //          h4.modal-title Dar de baja
+        //    .modal-body
+          //      label Documento a dar de baja:
+            //    input#documentoBaja.form-control(type='number', readonly)
+              //  br
+//                p Ingrese fecha de baja
+  //              input#fechaBaja.form-control(type='date', name='fecha_baja') 
+    //            br
+      //          p Motivo
+        //        input#motivoBaja.form-control(type='text', required='true')
+          //  .modal-footer
+            //    button#darBaja.btn.btn-default(type='button', data-dismiss='modal') Dar baja
 
 //Editar
-#modalTitular.modal.fade(role='dialog')
-    .modal-dialog.modal-lg
-        .modal-content
-            .modal-header
-                h4.modal-title Editar
-            .modal-body
-                    include editar_titular.pug
+//#modalEditarTitular.modal.fade(role='dialog')
+    //.modal-dialog.modal-lg
+        //.modal-content
+            //.modal-header
+                //h4.modal-title Editar Titular
+            //.modal-body
+include editar_titular.pug
 
-            .modal-footer
-                button.btn.btn-default(type='button', data-dismiss='modal') Close
+            //.modal-footer
+                //button.btn.btn-default(type='button', data-dismiss='modal') Close
+
+//#modalEditarCarga.modal.fade(role='dialog')
+    //.modal-dialog.modal-lg
+        //.modal-content
+            //.modal-header
+                //h4.modal-title Editar Carga
+            //.modal-body
+include editar_carga.pug
+
+//.modal-footer
+                //button.btn.btn-default(type='button', data-dismiss='modal') Close
+
 
 //Alta
-#modalAltaCarga.modal.fade(role='dialog')
-    .modal-dialog.modal-lg
-        .modal-content
-            .modal-header
-                h4.modal-title Carga
-            .modal-body
-                include afiliacion_carga.pug
-            .modal-footer
-                button.btn.btn-default(type='button', data-dismiss='modal') Close
+//#modalAltaCarga.modal.fade(role='dialog')
+    //.modal-dialog.modal-lg
+        //.modal-content
+            //.modal-header
+                //h4.modal-title Agregar Carga
+            //.modal-body
+include afiliacion_carga.pug
+            //.modal-footer
+                //button.btn.btn-default(type='button', data-dismiss='modal') Close
 
 
 //#modalAltaTitular.modal.fade(role='dialog')

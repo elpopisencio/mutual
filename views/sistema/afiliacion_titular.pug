@@ -19,61 +19,53 @@
                                 option(value='F') Femenino
                     .row
                         .col-2
-                            select#id_tipo_documento_titular.custom-select.mb-2.mr-sm-2.mb-sm-0.form-control(name='id_tipo_documento')
+                            select#id_tipo_documento_titular.custom-select.mb-2.mr-sm-2.mb-sm-0.form-control(name='id_tipo_documento', oninput="setCustomValidity('')")
                                 option(value='1') DNI
                                 option(value='2') LC
                                 option(value='3') LE
                         .col
-                            input#numero_documento_titular.form-control(type='text', placeholder='Numero Documento', name='numero_documento', required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
+                            input#numero_documento_titular.form-control(type='text', placeholder='Numero Documento', name='numero_documento', maxlength="8", required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
                         .col-2
-
-                            input#grupo_sanguineo_titular.form-control(type='text', placeholder='Grupo sanguineo', name='grupo_sanguineo', required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
+                            #grupo_sanguineo_titular_div
                     .row 
                         .col
                             label Fecha alta
                             input#fecha_alta_titular.form-control(type='date', name='fecha_alta', required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
                         .col
                             label Fecha entrega tarjeta
-                            input#fecha_tarjeta_titular.form-control(type='date',  name='fecha_tarjeta')  
+                            input#fecha_tarjeta_titular.form-control(type='date',  name='fecha_tarjeta', oninput="setCustomValidity('')")
                         .col
                             label Fecha nacimiento
-                            input#fecha_nacimiento_titular.form-control(type='date',  name='fecha_nacimiento', required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')") 
+                            input#fecha_nacimiento_titular.form-control(type='date',  name='fecha_nacimiento', required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
 
                     .row
                         .col-2
-                            select#reparticion_titular.custom-select.mb-2.mr-sm-2.mb-sm-0.form-control(name='reparticion', required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
-                                option(value='') Reparticion
-                                option(value='1') AC
-                                option(value='2') ACJB
-                                option(value='3') AC07
-                                option(value='4') ACIS
-                                option(value='5') ACJ1
-                                option(value='6') Z016
+                            #id_reparticion_titular_div                            
                         .col
-                            input#legajo_titular.form-control(type='text', placeholder='Legajo', name='legajo')
+                            input#legajo_titular.form-control(type='number', placeholder='Legajo', name='legajo',required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
                         .col
-                            input#subcontrato_titular.form-control(type='text', placeholder='Subcontrato', name='subcontrato')
+                            input#subcontrato_titular.form-control(type='text', placeholder='Subcontrato', name='subcontrato',required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
 
                         .col-3
-                            input#servicio_titular.form-control(type='text', placeholder='Unidad organizacional y Servicio', name='servicio')
+                            input#id_unidad_servicio_titular.form-control(type='text', placeholder='Unidad organizacional y Servicio', name='servicio',required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
                         .col
-                            input#lugar_pago_titular.form-control(type='text', placeholder='Lugar pago', name='lugar_pago')
+                            input#lugar_pago_titular.form-control(type='text', placeholder='Lugar pago', name='lugar_pago',required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
                         .col
-                            input#cuil_titular.form-control(type='text', placeholder='Cuil', name='cuil')
+                            input#cuil_titular.form-control(type='number', placeholder='Cuil', name='cuil',required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
                     .row
                         //.col
-                            //input.form-control(type='text', placeholder='CBU', name='cbu')
+                            //input.form-control(type='text', placeholder='CBU', name='cbu', oninput="setCustomValidity('')")
 
                         .col
-                            input.form-control(type='text', placeholder='Codigo postal', name='codigo_postal')
+                            #id_localidad_titular_div
                         .col
-                            input.form-control(type='text', placeholder='Domicilio', name='domicilio')
+                            input#domicilio_titular.form-control(type='text', placeholder='Domicilio', name='domicilio',required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
                         .col
-                            input.form-control(type='text', placeholder='Email', name='email')
+                            input#email_titular.form-control(type='email', placeholder='Email', name='email', oninput="setCustomValidity('')")
                         .col
-                            input.form-control(type='text', placeholder='Telefono', name='telefono')
+                            input#telefono_titular.form-control(type='tel', placeholder='Telefono', name='telefono',required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
                         .col
-                            input.form-control(type='text', placeholder='Delegacion', name='delegacion')
+                            #id_delegacion_titular_div
                     .row
                         input.form-control(type='hidden', value='0', name='numero_carga')
 

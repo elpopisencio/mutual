@@ -1,51 +1,67 @@
-form(method='POST', action='http://192.168.0.51:8080/altaCarga')
-    .row
-        .col
-            input.form-control(type='text', placeholder='Apellido', name='apellido')
-        .col-6
-            input.form-control(type='text', placeholder='Nombre', name='nombre')
-        .col-2
-           select#sexoCargaEditar.custom-select.mb-2.mr-sm-2.mb-sm-0.form-control(name='sexo')
-                option(selected=' ') Sexo
-                option(value='M') Masculino
-                option(value='F') Femenino
-    .row
-        .col-2
-            select#tipoDocumentoCargaEditar.custom-select.mb-2.mr-sm-2.mb-sm-0.form-control(name='id_tipo_documento')
-                option(value='1') DNI
-                option(value='2') LC
-                option(value='3') LE
-        .col
-            input#numeroDocumentoCargaEditar.form-control(type='text', placeholder='Numero Documento', name='numero_documento')
-        .col-2
-            input#grupoSanguineoCargaEditar.form-control(type='text', placeholder='Grupo sanguineo', name='grupo_sanguineo')
-    .row 
-        .col
-            label Fecha alta
-            input#fechaAltaCargaEditar.form-control(type='date', name='fecha_alta') 
-        .col
-            label Fecha entrega tarjeta
-            input#fechaTarjetaCargaEditar.form-control(type='date',  name='fecha_tarjeta')  
-        .col
-            label Fecha nacimiento
-            input#fechaNacimientoCargaEditar.form-control(type='date',  name='fecha_nacimiento')  
-    .row
-        .col-2
-            select#reparticionCargaEditar.custom-select.mb-2.mr-sm-2.mb-sm-0.form-control(name='reparticion')
-                option(value='') Reparticion propia
-                option(value='1') AC
-                option(value='2') ACJB
-                option(value='3') AC07
-                option(value='4') ACIS
-                option(value='5') ACJ1
-                option(value='6') Z016
-        .col
-            input#legajoPropioCargaEditar.form-control(type='text', placeholder='Legajo propio', name='legajo_propio')
-    .row
-        .col-2
-            input#numeroCargaEditar.form-control(type='number', placeholder='Numero de carga', name='numero_carga')
-    br
-    input.btn.btn-primary(type='submit', value='Ingresar')
+#modalEditarCarga.modal.fade(role='dialog')
+    .modal-dialog.modal-lg
+        .modal-content
+            .modal-header
+                h4.modal-title Editar Carga
+            .modal-body
+
+                form#editarCarga()
+                    h4 Datos Titular
+                    .row
+                        .col-2
+                            select#id_tipo_documento_titular_editar_carga.custom-select.mb-2.mr-sm-2.mb-sm-0.form-control(name='id_tipo_documento')
+                                option(value='1') DNI
+                                option(value='2') LC
+                                option(value='3') LE
+                        .col
+                            input#numero_documento_titular_editar_carga.form-control(type='text', name='numero_documento_titular')
+                    br
+                    h4 Datos Carga
+
+                    .row
+                        .col
+                            input#apellido_editar_carga.form-control(type='text', placeholder='Apellido', name='apellido')
+                        .col-6
+                            input#nombre_editar_carga.form-control(type='text', placeholder='Nombre', name='nombre')
+                        .col-2
+                           select#sexo_editar_carga.custom-select.mb-2.mr-sm-2.mb-sm-0.form-control(name='sexo')
+                                option(selected=' ') Sexo
+                                option(value='M') Masculino
+                                option(value='F') Femenino
+                    .row
+                        .col-2
+                            select#id_tipo_documento_editar_carga.custom-select.mb-2.mr-sm-2.mb-sm-0.form-control(name='id_tipo_documento')
+                                option(value='1') DNI
+                                option(value='2') LC
+                                option(value='3') LE
+                        .col
+                            input#numero_documento_editar_carga.form-control(type='text', placeholder='Numero Documento', name='numero_documento')
+                        .col-2
+                            input#grupo_sanguineo_editar_carga.form-control(type='text', placeholder='Grupo sanguineo', name='grupo_sanguineo')
+                    .row 
+                        .col
+                            label Fecha alta
+                            input#fecha_alta_editar_carga.form-control(type='date', name='fecha_alta') 
+                        .col
+                            label Fecha entrega tarjeta
+                            input#fecha_tarjeta_editar_carga.form-control(type='date',  name='fecha_tarjeta')  
+                        .col
+                            label Fecha nacimiento
+                            input#fecha_nacimiento_editar_carga.form-control(type='date',  name='fecha_nacimiento')  
+                    .row
+                        .col-2
+                            #id_reparticion_editar_carga_div
+                        .col
+                            input#legajo_propio_editar_carga.form-control(type='text', placeholder='Legajo propio', name='legajo_propio')
+                    .row
+                        .col-2
+                            input#numero_legajo_editar_carga.form-control(type='number', placeholder='Numero de carga', name='numero_carga')
+                    br
+                    .row
+                        .col
+                            input.btn.btn-primary.btn-block(type='submit', data_dismiss='modal', value='Editar')
+                        .col
+                            button.btn.btn-secondary.btn-block(type='button', data-dismiss='modal') Cerrar
 
 
 
