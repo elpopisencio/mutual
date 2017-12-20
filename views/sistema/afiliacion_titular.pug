@@ -18,19 +18,30 @@
                                 option(value='M') Masculino
                                 option(value='F') Femenino
                     .row
+                        .col-4
+                            
+                        .col
+                            label Documento y CUIL
+                    .row
                         .col-2
                             select#id_tipo_documento_titular.custom-select.mb-2.mr-sm-2.mb-sm-0.form-control(name='id_tipo_documento', oninput="setCustomValidity('')")
                                 option(value='1') DNI
                                 option(value='2') LC
                                 option(value='3') LE
+                        .col-2
+                            input#ante_cuil_titular.form-control(type='text', placeholder='CUIL', name='numero_documento', maxlength="2", required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
+
                         .col
                             input#numero_documento_titular.form-control(type='text', placeholder='Numero Documento', name='numero_documento', maxlength="8", required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
                         .col-2
+                            input#pos_cuil_titular.form-control(type='text', placeholder='CUIL', name='numero_documento', maxlength="2", required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
+
+                        .col-3
                             #grupo_sanguineo_titular_div
                     .row 
                         .col
-                            label Fecha alta
-                            input#fecha_alta_titular.form-control(type='date', name='fecha_alta', required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
+                            label Fecha de afiliacion
+                            input#fecha_estado_titular.form-control(type='date', name='fecha_estado', required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
                         .col
                             label Fecha entrega tarjeta
                             input#fecha_tarjeta_titular.form-control(type='date',  name='fecha_tarjeta', oninput="setCustomValidity('')")
@@ -67,7 +78,7 @@
                         .col
                             #id_delegacion_titular_div
                     .row
-                        input.form-control(type='hidden', value='0', name='numero_carga')
+                        input#numero_carga_titular.form-control(type='hidden', value='0', name='numero_carga')
 
                     br
                     .row

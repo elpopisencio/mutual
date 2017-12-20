@@ -2,30 +2,53 @@
 #modalMostrar.modal.fade(role='dialog')
     .modal-dialog.modal-lg
         .modal-content
-            .modal-header
-                h4.modal-title Carga
+            //.modal-header
+                //h4.modal-title Carga
             .modal-body
                 
 
-                ul.nav.nav-tabs
-                    li.nav-item
-                        a.nav-link.active(href='#modalTitularUno', data-toggle='tab') Titular
-                    li.nav-item
-                        a.nav-link(href='#modalCargaUno', data-toggle='tab') Carga
-                .tab-content
-                    #modalTitularUno.tab-pane.fade.show.active
-                        include mostrar_afiliado.pug
-                    #modalCargaUno.tab-pane.fade 
-                        #datosCarga
-
+                //ul.nav.nav-tabs
+                    //li.nav-item
+                        //a.nav-link.active(href='#modalTitularUno', data-toggle='tab') Titular
+                    //li.nav-item
+                        //a.nav-link(href='#modalCargaUno', data-toggle='tab') Carga
+                //.tab-content
+                #modalTitularUno
+                    include mostrar_titular.pug
+                    br
                     
-                    
+                    .row
+                        .col
+                            button#mostrar_cargas_titular.btn.btn-primary.btn-block(type='button') Mostrar cargas
+                        .col
+                            button#generar_pdf.btn.btn-warning.btn-block(type='button', value='0') Generar PDF
+                        .col
+                            button.btn.btn-secondary.btn-block(type='button', data-dismiss='modal') Cerrar
+
+                    //.tab-pane.fade.show.active
+
+                #modalCargaUno
+                    #datosCarga
+                    br
+                    .row
+                        .col
+                            button#mostrar_titular.btn.btn-primary.btn-block(type='button') Mostrar titular
+                        .col
+                            button.btn.btn-secondary.btn-block(type='button', data-dismiss='modal') Cerrar
+
+                    //.tab-pane.fade 
+
+                #modalMostrarCarga
+                    include mostrar_carga.pug
+                    br
+                    .row
+                        .col
+                            button#mostrar_cargas_carga.btn.btn-primary.btn-block(type='button') Volver
+                        .col
+                            button.btn.btn-secondary.btn-block(type='button', data-dismiss='modal') Cerrar
 
 
 
-
-            .modal-footer
-                button.btn.btn-default(type='button', data-dismiss='modal') Close
 
 include baja.pug
 

@@ -2,33 +2,27 @@
 #modalEstado.modal.fade(role='dialog')
     .modal-dialog.modal-lg
         .modal-content
-            .modal-header
-                h4.modal-title Cambiar Estado
             .modal-body
+                #titulo_estado
                 form#estado()
                     .row
                         .col
                             label Documento:
-                    .row
-                        .col
                             input#documento_estado.form-control(type='number', readonly)
-                    br
-                    .row
                         .col
-                            #estados_div
-                    .row
+                            label Nuevo estado
+                            #estados_estado_div
                         .col
                             label Ingrese fecha de cambio de estado
+                            input#fecha_estado.form-control(type='date',  name='fecha_baja', required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
+                   
+                        .col
+                            label Motivo del cambio
+                            #motivos_estado_div
                     .row
                         .col
-                            input#fechaBaja.form-control(type='date',  name='fecha_baja', required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
-                    br
-                    .row
-                        .col
-                            label Motivo
-                    .row
-                        .col
-                            input#motivoBaja.form-control(type='text', required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
+                            label Observacion
+                            input#observaciones_estado.form-control(type='text', required='true', oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')", oninput="setCustomValidity('')")
                     br
                     .row
                         .col
